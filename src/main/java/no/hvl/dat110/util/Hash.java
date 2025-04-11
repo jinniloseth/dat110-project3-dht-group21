@@ -25,6 +25,7 @@ public class Hash {
 		// compute the hash of the input 'entity'
 		
 		// convert the hash into hex format
+		toHex();
 		
 		// convert the hex into BigInteger
 		
