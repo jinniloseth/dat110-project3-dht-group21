@@ -1,12 +1,5 @@
 package no.hvl.dat110.util;
 
-/**
- * exercise/demo purpose in dat110
- * @author tdoy
- *
- */
-
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,45 +9,32 @@ public class Hash {
 	
 	public static BigInteger hashOf(String entity) {	
 		
-		BigInteger hashint = null;
-		
-		// Task: Hash a given string using MD5 and return the result as a BigInteger.
-		
-		// we use MD5 with 128 bits digest
-		
-		// compute the hash of the input 'entity'
-		
-		// convert the hash into hex format
-		toHex();
-		
-		// convert the hex into BigInteger
-		
-		// return the BigInteger
-		
-		return hashint;
+		try {
+			//oppretter en MD5 MessageDigest 
+			MessageDigest md= MessageDigest.getInstance("MD5");
+			
+			//beregn hash-verdien av input-strengen
+			byte[] digest= md.digest(entity.getBytes());
+			
+			//konverterer byte-array til BigInteger (pos verdi)
+			return new BigInteger(1, digest);
+		}catch(NoSuchAlgorithmException e){
+			throw new RuntimeException("MD5 algoritmen er ikke tilgjengelig ", e);
+		}
 	}
 	
 	public static BigInteger addressSize() {
 		
-		// Task: compute the address size of MD5
-		
-		// compute the number of bits = bitSize()
-		
-		// compute the address size = 2 ^ number of bits
-		
-		// return the address size
-		
-		return null;
+		//MD5 gir en 128-bits adresseplass, altså 2^128
+		// Metoden .pow(int exponent) i BigInteger brukes til å beregne en potens
+		return BigInteger.valueOf(2).pow(128);
 	}
 	
 	public static int bitSize() {
-		
-		int digestlen = 0;
-		
-		// find the digest length
-		
-		return digestlen*8;
+		//md5 genererer en 128-bit hash
+		return 128;
 	}
+	
 	
 	public static String toHex(byte[] digest) {
 		StringBuilder strbuilder = new StringBuilder();

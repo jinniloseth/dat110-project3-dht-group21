@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="no.hvl.dat110.unit.tests.TestFilePeers" time="0.009" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21/target/test-classes:/Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21/target/classes:/Users/jinniloseth/.m2/repository/org/apache/logging/log4j/log4j-core/2.20.0/log4j-core-2.20.0.jar:/Users/jinniloseth/.m2/repository/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0.jar:/Users/jinniloseth/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:/Users/jinniloseth/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/jinniloseth/.m2/repository/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2.jar:/Users/jinniloseth/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="user.timezone" value="Europe/Oslo"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="NO"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21/target/surefire/surefirebooter-20250502214012259_3.jar /Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21/target/surefire 2025-05-02T21-40-12_116-jvmRun1 surefire-20250502214012259_1tmp surefire_0-20250502214012259_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="surefire.test.class.path" value="/Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21/target/test-classes:/Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21/target/classes:/Users/jinniloseth/.m2/repository/org/apache/logging/log4j/log4j-core/2.20.0/log4j-core-2.20.0.jar:/Users/jinniloseth/.m2/repository/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0.jar:/Users/jinniloseth/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:/Users/jinniloseth/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/jinniloseth/.m2/repository/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2.jar:/Users/jinniloseth/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/jinniloseth"/>
+    <property name="user.language" value="nb"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21"/>
+    <property name="style.color" value="always"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21/target/surefire/surefirebooter-20250502214012259_3.jar"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="1.8.0_392-b08"/>
+    <property name="user.name" value="jinniloseth"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="15.3.2"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/jinniloseth/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-8/issues/"/>
+    <property name="java.io.tmpdir" value="/var/folders/35/q71ycfzs1p93qhkss5hfmcb40000gn/T/"/>
+    <property name="java.version" value="1.8.0_392"/>
+    <property name="user.dir" value="/Users/jinniloseth/Repostitories/V2025/DAT110/dat110-project3-dht-gruppe21"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/jinniloseth/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="25.392-b08"/>
+    <property name="java.specification.maintenance.version" value="5"/>
+    <property name="java.ext.dirs" value="/Users/jinniloseth/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="test" classname="no.hvl.dat110.unit.tests.TestFilePeers" time="0.008">
+    <system-out><![CDATA[id: 127615430233524719490345743798572761786
+lower: 66910184482037901621933403444034052414
+upper: 121411138451101288395601026024677976156
+Result (no wrap): false
+id: 15618062003214643351512781541041391612
+lower: 66910184482037901621933403444034052414
+upper: 127615430233524719490345743798572761786
+Result (no wrap): false
+id: 210821560651360572675896360671414673172
+lower: 66910184482037901621933403444034052414
+upper: 127615430233524719490345743798572761786
+Result (no wrap): false
+id: 121411138451101288395601026024677976156
+lower: 66910184482037901621933403444034052414
+upper: 127615430233524719490345743798572761786
+Result (no wrap): true
+id: 127615430233524719490345743798572761786
+lower: 121411138451101288395601026024677976156
+upper: 210821560651360572675896360671414673172
+Result (no wrap): true
+id: 136541484142652779330200457892076216958
+lower: 66910184482037901621933403444034052414
+upper: 121411138451101288395601026024677976156
+Result (no wrap): false
+id: 15618062003214643351512781541041391612
+lower: 66910184482037901621933403444034052414
+upper: 136541484142652779330200457892076216958
+Result (no wrap): false
+id: 210821560651360572675896360671414673172
+lower: 66910184482037901621933403444034052414
+upper: 136541484142652779330200457892076216958
+Result (no wrap): false
+id: 121411138451101288395601026024677976156
+lower: 66910184482037901621933403444034052414
+upper: 136541484142652779330200457892076216958
+Result (no wrap): true
+id: 136541484142652779330200457892076216958
+lower: 121411138451101288395601026024677976156
+upper: 210821560651360572675896360671414673172
+Result (no wrap): true
+id: 66481538825926898419352978747807121875
+lower: 66910184482037901621933403444034052414
+upper: 121411138451101288395601026024677976156
+Result (no wrap): false
+id: 15618062003214643351512781541041391612
+lower: 66910184482037901621933403444034052414
+upper: 66481538825926898419352978747807121875
+Result (wrap): true
+id: 66481538825926898419352978747807121875
+lower: 15618062003214643351512781541041391612
+upper: 53937554629190552131995290006614509577
+Result (no wrap): false
+id: 210821560651360572675896360671414673172
+lower: 15618062003214643351512781541041391612
+upper: 66481538825926898419352978747807121875
+Result (no wrap): false
+id: 121411138451101288395601026024677976156
+lower: 15618062003214643351512781541041391612
+upper: 66481538825926898419352978747807121875
+Result (no wrap): false
+id: 66910184482037901621933403444034052414
+lower: 15618062003214643351512781541041391612
+upper: 66481538825926898419352978747807121875
+Result (no wrap): false
+id: 53937554629190552131995290006614509577
+lower: 15618062003214643351512781541041391612
+upper: 66481538825926898419352978747807121875
+Result (no wrap): true
+id: 66481538825926898419352978747807121875
+lower: 53937554629190552131995290006614509577
+upper: 66910184482037901621933403444034052414
+Result (no wrap): true
+id: 305513342937436802305366564249075562188
+lower: 66910184482037901621933403444034052414
+upper: 121411138451101288395601026024677976156
+Result (no wrap): false
+id: 15618062003214643351512781541041391612
+lower: 66910184482037901621933403444034052414
+upper: 305513342937436802305366564249075562188
+Result (no wrap): false
+id: 210821560651360572675896360671414673172
+lower: 66910184482037901621933403444034052414
+upper: 305513342937436802305366564249075562188
+Result (no wrap): true
+id: 305513342937436802305366564249075562188
+lower: 210821560651360572675896360671414673172
+upper: 15618062003214643351512781541041391612
+Result (wrap): true
+]]></system-out>
+  </testcase>
+</testsuite>

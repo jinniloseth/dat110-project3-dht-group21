@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 import no.hvl.dat110.middleware.Message;
 import no.hvl.dat110.middleware.Node;
 import no.hvl.dat110.rpc.interfaces.NodeInterface;
+import no.hvl.dat110.util.Hash;
 import no.hvl.dat110.util.Util;
 
 /**
@@ -85,14 +86,15 @@ public class ChordProtocols {
 					logger.info(chordnode.getNodeName()+" is between null | "+chordnodeSuccessor.getNodeName());
 					
 				} catch (Exception e) {
-					logger.error(e.getMessage());
+					logger.error("Feil i joinRing(): " + e.getMessage());
 				}
 			} else {
 				
 				createRing((Node) chordnode);		// no node is available, create a new ring
 			}
 		} catch (NumberFormatException | RemoteException e1) {
-			// TODO Auto-generated catch block
+			logger.error("Feil under oppkobling mot registry: " + e1.getMessage());
+			
 		}
 	}
 	
@@ -104,20 +106,20 @@ public class ChordProtocols {
 		// set the successor to itself
 		node.setSuccessor(node);
 		
-		logger.info("New ring created. Node = "+node.getNodeName()+" | Successor = "+node.getSuccessor().getNodeName()+
-				" | Predecessor = "+node.getPredecessor());
+		logger.info("New ring created. Node = "+node.getNodeName()+" "
+				+ "| Successor = "+node.getSuccessor().getNodeName()+
+				  "| Predecessor = "+node.getPredecessor());
 		
 	}
 	
 	public void leaveRing() throws RemoteException {
 		
-		logger.info("Attempting to update successor and predecessor before leaving the ring...");
+		logger.info("Oppdaterer successor og predecessor før noden forlater ringen...");
 		
 		try {
 		 
 			NodeInterface prednode = chordnode.getPredecessor();														// get the predecessor			
 			NodeInterface succnode = chordnode.getSuccessor();														// get the successor		
-			
 			Set<BigInteger> keyids = chordnode.getNodeKeys();									// get the keys for chordnode
 			
 			if(succnode != null) {												// add chordnode's keys to its successor
@@ -129,7 +131,7 @@ public class ChordProtocols {
 						Message msg = chordnode.getFilesMetadata().get(fileID);				
 						succnode.saveFileContent(msg.getNameOfFile(), fileID, msg.getBytesOfFile(), msg.isPrimaryServer()); 			// save the file in memory of the newly joined node
 					} catch (RemoteException e) {
-						//
+						logger.info("Feil under nøkkeloverføring:" + e.getMessage());
 					} 
 				});
 
@@ -145,17 +147,41 @@ public class ChordProtocols {
 			
 		}catch(Exception e) {
 			//
-			logger.error("some errors while updating succ/pred/keys...\n"+e.getMessage());
+			logger.error("Feil under oppdatering av successor/predecessor/keys: " + e.getMessage());
 		}
 		
-		logger.info("Update of successor and predecessor completed...bye!");
+		logger.info("Oppdatering fullført. Noden har forlatt ringen.");
 	}
 	
 	public void fixFingerTable() {
 		
 		try {
-			logger.info("Fixing the FingerTable for the Node: "+ chordnode.getNodeName());
+			logger.info("Oppdaterer FingerTable for Node: "+ chordnode.getNodeName());
 	
+
+			int m = Hash.bitSize();
+			BigInteger addressSize = Hash.addressSize();
+			
+			chordnode.getFingerTable().clear();
+			
+			
+			
+	        for (int i = 0; i < m; i++) {
+	        	BigInteger offset = BigInteger.valueOf(2).pow(i);
+	        	BigInteger fingerID = chordnode.getNodeID().add(offset).mod(addressSize);
+	            
+	            logger.info("Beregner fingerID for finger " + i + ": " + fingerID);
+	         
+	            NodeInterface successor = chordnode.findSuccessor(fingerID);
+
+	            if (successor != null) {
+					chordnode.getFingerTable().add(successor);
+					logger.info("Finger " + i + " peker nå til: " + successor.getNodeName());
+				} else {
+					logger.warn("Fant ingen etterfølger for fingerID: " + fingerID);
+				}
+			}
+			
 			// get the finger table from the chordnode (list object)
 			
 			// ensure to clear the current finger table
@@ -173,8 +199,12 @@ public class ChordProtocols {
 			// check that succnode is not null, then add it to the finger table
 
 		} catch (RemoteException e) {
-			//
-		}
+	        // Håndter eventuelle RemoteExceptions som kan oppstå ved kommunikasjon
+	        logger.error("Error while fixing finger table: " + e.getMessage(), e);
+	    } catch (Exception e) {
+	        // Håndter andre unntak som kan oppstå
+	        logger.error("An unexpected error occurred while fixing the finger table: " + e.getMessage(), e);
+	    }
 	}
 
 	protected NodeInterface getChordnode() {

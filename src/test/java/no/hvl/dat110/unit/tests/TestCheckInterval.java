@@ -25,6 +25,7 @@ class TestCheckInterval {
 	@Test
 	void test() throws InterruptedException, RemoteException {
 		// lower1 < id1 < upper1  (false bcos lower1 > id)
+		
 		BigInteger id1 = new BigInteger("8256520967608282605234844990226290265");
 		BigInteger lower1 = new BigInteger("15618062003214643351512781541041391612");
 		BigInteger upper1 = new BigInteger("210821560651360572675896360671414673172");
@@ -69,8 +70,9 @@ class TestCheckInterval {
 		BigInteger lower9 = Hash.addressSize().subtract(new BigInteger("5"));
 		BigInteger upper9 = new BigInteger("2").mod(Hash.addressSize());
 		
+
 		assertFalse(Util.checkInterval(id1, lower1, upper1));
-		assertTrue(Util.checkInterval(id2, lower2, upper2));
+		assertTrue(Util.checkInterval(id2, lower2, upper2), "Expected checkInterval to return true for id2: " + id2 + ", lower2: " + lower2 + ", upper2: " + upper2);
 		assertTrue(Util.checkInterval(id3, lower3, upper3));
 		assertTrue(Util.checkInterval(id4, lower4, upper4));
 		assertTrue(Util.checkInterval(id5, lower5, upper5));
